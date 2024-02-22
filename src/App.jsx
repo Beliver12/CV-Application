@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { FullName, Email, PhoneNumber } from './general'
+import { SchoolName, TitleOfStudy, DateOfStudy } from './Educational'
 import './App.css'
 
 function App() {
@@ -8,6 +8,17 @@ const [firstName, setFirstName] = useState('')
 const [lastName, setLastName] = useState('')
 const [mail, setMail] = useState('')
 const [phoneNumber, setPhoneNumber] = useState('')
+
+const [schoolName, setSchoolName] = useState('')
+const [titleOfStudy, settitleOfStudy] = useState('')
+const [dateOfStudy, setdateOfStudy] = useState('')
+const [educationInfo, setEducationInfo] = useState({name: '', title: '', date: ''})
+
+function handleSubmit(e) {
+  e.preventDefault()
+  setEducationInfo({...educationInfo, name: schoolName, title: titleOfStudy, date: dateOfStudy})
+
+}
 
   return (
    <div id='container'>
@@ -33,51 +44,31 @@ const [phoneNumber, setPhoneNumber] = useState('')
 <p>Phone: {phoneNumber} </p>
 </div>
 </section>
+<section className='Educational-section'>
+<h1>General Info</h1>
+<form className='General-inputs' onSubmit={handleSubmit}>
+  <div>
+    <SchoolName label="School-Name" handleChange={(e) => setSchoolName(e.target.value)}/>
+  </div>
+  <div>
+    <TitleOfStudy label="Title-Of-Study" handleChange={(e) => settitleOfStudy(e.target.value)}/>
+  </div>
+  <div>
+    <DateOfStudy label="Date-Of-Study" handleChange={(e) => setdateOfStudy(e.target.value)}/>
+  </div>
+  <button type='submit'>Submit</button>
+</form>
+<div className='General-info'>
+<p>School-Name: {educationInfo.name}</p>
+<p>Title-Of-Study: {educationInfo.title}</p>
+<p>Date-Of-Study: {educationInfo.date} </p>
+</div>
+</section>
    </div>
 
   )
 }
 
-function FullName({label, handleChange, value}) {
-  return (
-    <label>
-      {label}
-      {''}
-      <input type="text" 
-      value={value}
-      onChange={handleChange}
-      />
-     
-    </label>
-  )
-}
 
-function Email({label, handleChange, value}) {
-  return (
-    <label>
-      {label}
-      {''}
-      <input type="email" 
-      value={value}
-      onChange={handleChange}
-      />
-     
-    </label>
-  )
-}
-
-function PhoneNumber({label, handleChange, value}) {
-  return (
-    <label>
-      {label}
-      {''}
-      <input type="tel" 
-      value={value}
-      onChange={handleChange}
-      />
-     
-    </label>
-  )
-}
 
 export default App

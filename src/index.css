@@ -24,3 +24,9 @@ p{
 .General-inputs, .General-info{
   grid-row: 2/3;
 }
+
+.Educational-section{
+  display: grid;
+  grid-template-columns: 15vw 15vw;
+  border: 1px solid black;
+}
