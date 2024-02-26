@@ -7,6 +7,7 @@ function FullName({label, handleChange, value}) {
         <input type="text" 
         value={value}
         onChange={handleChange}
+        required
         />
        
       </label>
@@ -21,6 +22,7 @@ function FullName({label, handleChange, value}) {
         <input type="email" 
         value={value}
         onChange={handleChange}
+        required
         />
        
       </label>
@@ -35,6 +37,7 @@ function FullName({label, handleChange, value}) {
         <input type="tel" 
         value={value}
         onChange={handleChange}
+        required
         />
        
       </label>

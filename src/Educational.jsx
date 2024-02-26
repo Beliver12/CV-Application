@@ -8,6 +8,7 @@ function SchoolName({label,handleChange, value }){
             <input type="text" 
             value={value}
             onChange={handleChange}
+            required
             />
         </label>
     )
@@ -22,6 +23,7 @@ function TitleOfStudy({label,handleChange, value }){
             <input type="text" 
              value={value}
              onChange={handleChange}
+             required
             />
         </label>
     )
@@ -36,6 +38,7 @@ function DateOfStudy({label,handleChange, value }){
             <input type="date" 
              value={value}
              onChange={handleChange}
+             required
             />
         </label>
     )
